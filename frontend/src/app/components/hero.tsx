@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Hero(){
   return(
  <div className="hero lg:h-screen lg:flex lg:items-end mb-8 lg:mb-0 lg:pb-[100px]">

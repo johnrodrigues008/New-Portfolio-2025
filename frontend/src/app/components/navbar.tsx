@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useTransition } from "../contexts/transition-context";
 import { useRouter } from "next/navigation";
 
