@@ -22,14 +22,14 @@ export default function About() {
             <div
               className="
                 w-full max-w-[600px]
-                h-[350px] sm:h-[450px] md:h-[550px] lg:h-[750px]
+                aspect-[3/4] sm:aspect-[4/5]
+                lg:aspect-auto lg:w-[min(600px,100%)] lg:h-[calc(100vh-2rem)]
                 bg-center bg-cover bg-no-repeat
                 rounded-md shadow-lg
               "
-              style={{
-                backgroundImage: `url(${PersonImg.src})`,
-              }}
+              style={{ backgroundImage: `url(${PersonImg.src})` }}
             />
+
 
           </div>
         </section>
@@ -73,7 +73,7 @@ export default function About() {
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                Over the last years, I’ve worked across multiple layers of software development —
+                Over the last years, I’ve worked across multiple layers of software development
                 from frontend engineering and backend architecture to UI/UX design, SEO/CRO
                 strategy and data automation.
               </p>

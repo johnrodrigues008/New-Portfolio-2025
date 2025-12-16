@@ -4,19 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "../contexts/transition-context";
+import type { MouseEvent } from "react";
 
 import Linkedin from "../../../public/img/linkedin.svg";
 import Dribble from "../../../public/img/dribble.svg";
 import Behance from "../../../public/img/behance.svg";
 import Threads from "../../../public/img/threads.svg";
 
-export default function Footer() {
+type FooterProps = {
+  /** Cor em formato CSS, ex: "#ECE7C1" */
+  textColor?: string;
+};
+
+export default function Footer({
+  textColor = "#ECE7C1", // cor padrão
+}: FooterProps) {
   const pathname = usePathname();
   const router = useRouter();
   const { startTransition } = useTransition();
   const isHome = pathname === "/";
 
-  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleHomeClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     startTransition();
     setTimeout(() => {
@@ -84,7 +92,7 @@ export default function Footer() {
 
               <Link
                 className="p-2 lg:m-2 hover:opacity-80 transition-opacity"
-                href="https://dribbble.com/Rodrigues008"
+                href="https://www.threads.net"
                 aria-label="Threads"
               >
                 <Image
@@ -96,7 +104,12 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            <div className="hidden lg:block w-px h-[100px] bg-[#ECE7C1] mt-4"></div>
+
+            {/* linha vertical usando a mesma cor do texto */}
+            <div
+              className="hidden lg:block w-px h-[100px] mt-4"
+              style={{ backgroundColor: textColor }}
+            />
           </>
         ) : (
           <>
@@ -104,16 +117,25 @@ export default function Footer() {
               href="/"
               className="text-2xl sm:text-2xl lg:py-10 tracking-[5px] lg:text-xs lg:-rotate-90 transition-all duration-300 ease-in-out p-2 lg:m-2"
               onClick={handleHomeClick}
+              style={{ color: textColor }}
             >
               HOME
             </a>
-            <div className="hidden lg:block w-px h-[100px] bg-[#ECE7C1] mt-4"></div>
+            <div
+              className="hidden lg:block w-px h-[100px] mt-4"
+              style={{ backgroundColor: textColor }}
+            />
           </>
         )}
       </div>
 
       <div className="lg:absolute lg:bottom-6 lg:left-3 lg:-rotate-90">
-        <p className="text-xs sm:text-sm hidden lg:block py-3">© 2025</p>
+        <p
+          className="text-xs sm:text-sm hidden lg:block py-3"
+          style={{ color: textColor }}
+        >
+          © 2025
+        </p>
       </div>
     </footer>
   );
