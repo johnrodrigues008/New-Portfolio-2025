@@ -79,7 +79,7 @@ export default function About() {
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                As a Senior Full-Stack Developer, I design and build scalable applications, ensuring
+                As Full-Stack Developer, I design and build scalable applications, ensuring
                 performance, reliability and clarity in every stage of the product lifecycle.
               </p>
 
@@ -121,7 +121,7 @@ export default function About() {
               </h2>
 
               <ul className="list-disc list-inside space-y-1 mt-4 text-sm sm:text-base leading-6">
-                <li>Senior Full-Stack Developer — G4F</li>
+                <li>Full-Stack Developer — G4F</li>
                 <li>Full-Stack Developer — Decisão Sistemas</li>
                 <li>SEO/CRO Developer — Media.Monks Brasil</li>
                 <li>Data & Automation Analyst — Ministério da Infraestrutura</li>

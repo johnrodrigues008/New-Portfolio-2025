@@ -24,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistMono.variable} antialiased`}
+        cz-shortcut-listen="true"
       >
         <TransitionProvider>
           {children}

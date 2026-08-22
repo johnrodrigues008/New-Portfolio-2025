@@ -24,7 +24,7 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, '/about')}
             className="font-grandslang text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[12rem] block leading-[0.9] hover:opacity-80 hover:skew-x-[-15deg] transition-all duration-300 ease-in-out cursor-pointer"
           >
-            ABOUT
+            About
           </a>
         </li>
         <li>
@@ -33,7 +33,7 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, '/work')}
             className="font-grandslang text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[12rem] block leading-[0.9] hover:opacity-80 hover:skew-x-[-15deg] transition-all duration-300 ease-in-out cursor-pointer"
           >
-            WORK
+            Work
           </a>
         </li>
         <li>
@@ -42,7 +42,7 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, '/blog')}
             className="font-grandslang text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[12rem] block leading-[0.9] hover:opacity-80 hover:skew-x-[-15deg] transition-all duration-300 ease-in-out cursor-pointer"
           >
-            SHOP
+            Education
           </a>
         </li>
         <li>
@@ -51,7 +51,7 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, '/contact')}
             className="font-grandslang text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] 2xl:text-[12rem] block leading-[0.9] hover:opacity-80 hover:skew-x-[-15deg] transition-all duration-300 ease-in-out cursor-pointer"
           >
-            CONTACT
+            Contact
           </a>
         </li>
       </ul>

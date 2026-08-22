@@ -134,7 +134,7 @@ export default function Footer({
           className="text-xs sm:text-sm hidden lg:block py-3"
           style={{ color: textColor }}
         >
-          © 2025
+          © 2026
         </p>
       </div>
     </footer>
