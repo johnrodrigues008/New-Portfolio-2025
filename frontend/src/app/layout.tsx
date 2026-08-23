@@ -3,6 +3,7 @@ import { Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 import { TransitionProvider } from './contexts/transition-context';
+import { LocaleProvider } from './i18n';
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${geistMono.variable} antialiased cz-shortcut-listen="true"`}>
-        <TransitionProvider>
-          {children}
-        </TransitionProvider>
+        <LocaleProvider>
+          <TransitionProvider>
+            {children}
+          </TransitionProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

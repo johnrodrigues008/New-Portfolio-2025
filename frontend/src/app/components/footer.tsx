@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "../contexts/transition-context";
+import { useTranslations } from "../i18n";
 import type { MouseEvent } from "react";
 
 import Linkedin from "../../../public/img/linkedin.svg";
@@ -17,11 +18,12 @@ type FooterProps = {
 };
 
 export default function Footer({
-  textColor = "#ECE7C1", // cor padrão
+  textColor = "#ECE7C1",
 }: FooterProps) {
   const pathname = usePathname();
   const router = useRouter();
   const { startTransition } = useTransition();
+  const t = useTranslations();
   const isHome = pathname === "/";
 
   const handleHomeClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -33,23 +35,20 @@ export default function Footer({
   };
 
   return (
-    <footer
+    <div
       className="
-        flex flex-row lg:flex-col
-        items-center justify-between lg:justify-between lg:items-center
-        w-full lg:w-[80px]
-        h-auto lg:h-screen
-        px-4 sm:px-6 lg:px-0
-        py-4 lg:py-0
-        lg:fixed lg:left-0 lg:top-0
+        hidden
+        lg:fixed lg:top-0 lg:left-0 lg:z-40
+        lg:flex lg:h-screen lg:w-[100px] lg:flex-col lg:items-center
+        lg:py-6
       "
     >
-      <div className="flex flex-row lg:flex-col items-center gap-2 sm:gap-4 lg:gap-0">
+      <div className="flex flex-col items-center">
         {isHome ? (
           <>
-            <div className="flex flex-row lg:flex-col items-center">
+            <div className="flex flex-col items-center">
               <Link
-                className="p-2 lg:m-2 hover:opacity-80 transition-opacity"
+                className="m-2 p-2 transition-opacity hover:opacity-80"
                 href="https://www.linkedin.com/in/johnrodrigues009/"
                 aria-label="LinkedIn"
               >
@@ -63,7 +62,7 @@ export default function Footer({
               </Link>
 
               <Link
-                className="p-2 lg:m-2 hover:opacity-80 transition-opacity"
+                className="m-2 p-2 transition-opacity hover:opacity-80"
                 href="https://dribbble.com/Rodrigues008"
                 aria-label="Dribbble"
               >
@@ -77,7 +76,7 @@ export default function Footer({
               </Link>
 
               <Link
-                className="p-2 lg:m-2 hover:opacity-80 transition-opacity"
+                className="m-2 p-2 transition-opacity hover:opacity-80"
                 href="https://www.behance.net/johnrodrigues008"
                 aria-label="Behance"
               >
@@ -91,7 +90,7 @@ export default function Footer({
               </Link>
 
               <Link
-                className="p-2 lg:m-2 hover:opacity-80 transition-opacity"
+                className="m-2 p-2 transition-opacity hover:opacity-80"
                 href="https://www.threads.net"
                 aria-label="Threads"
               >
@@ -105,38 +104,36 @@ export default function Footer({
               </Link>
             </div>
 
-            {/* linha vertical usando a mesma cor do texto */}
             <div
-              className="hidden lg:block w-px h-[100px] mt-4"
+              className="mt-4 h-[100px] w-px"
               style={{ backgroundColor: textColor }}
+              aria-hidden="true"
             />
           </>
         ) : (
           <>
             <a
               href="/"
-              className="text-2xl sm:text-2xl lg:py-10 tracking-[5px] lg:text-xs lg:-rotate-90 transition-all duration-300 ease-in-out p-2 lg:m-2"
+              className="m-2 -rotate-90 py-10 text-xs tracking-[5px] transition-all duration-300 ease-in-out"
               onClick={handleHomeClick}
               style={{ color: textColor }}
             >
-              HOME
+              {t.footer.home}
             </a>
             <div
-              className="hidden lg:block w-px h-[100px] mt-4"
+              className="mt-4 h-[100px] w-px"
               style={{ backgroundColor: textColor }}
+              aria-hidden="true"
             />
           </>
         )}
       </div>
 
-      <div className="lg:absolute lg:bottom-6 lg:left-3 lg:-rotate-90">
-        <p
-          className="text-xs sm:text-sm hidden lg:block py-3"
-          style={{ color: textColor }}
-        >
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 -rotate-90">
+        <p className="whitespace-nowrap text-xs" style={{ color: textColor }}>
           © 2026
         </p>
       </div>
-    </footer>
+    </div>
   );
 }

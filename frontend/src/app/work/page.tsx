@@ -2,9 +2,11 @@
 
 import Footer from "../components/footer";
 import { useCallback } from "react";
+import { useTranslations } from "../i18n";
 
 export default function Work() {
-  // Função para descer a página 100px
+  const t = useTranslations();
+
   const scrollDown = useCallback(() => {
     window.scrollBy({
       top: 500,
@@ -16,60 +18,53 @@ export default function Work() {
   const projects = [
     {
       id: 1,
-      title: "Gupe Admin",
-      description:
-        "Sistema administrativo com foco em gestão, performance e escalabilidade.",
+      title: t.work.projects.gupeAdmin.title,
+      description: t.work.projects.gupeAdmin.description,
       image: "/img/projects/gupe-admin.jpg",
       preview: "https://gupeadmin.preview.com",
       github: "https://github.com/seu-usuario/gupeadmin",
     },
     {
       id: 2,
-      title: "Dev Receitas",
-      description:
-        "Chatbot com IA para geração de receitas culinárias personalizadas.",
+      title: t.work.projects.devReceitas.title,
+      description: t.work.projects.devReceitas.description,
       image: "/img/projects/dev-receitas.jpg",
       preview: "https://devreceitas.preview.com",
       github: "https://github.com/seu-usuario/dev-receitas",
     },
     {
       id: 3,
-      title: "Cardápio Online",
-      description:
-        "Plataforma de cardápio digital com gerenciamento de produtos e categorias.",
+      title: t.work.projects.cardapioOnline.title,
+      description: t.work.projects.cardapioOnline.description,
       image: "/img/projects/cardapio-online.jpg",
       preview: "https://cardapio.preview.com",
       github: "https://github.com/seu-usuario/cardapio-online",
     },
     {
       id: 4,
-      title: "Portfólio Pessoal",
-      description:
-        "Portfólio moderno desenvolvido com Next.js, Tailwind e foco em UX.",
+      title: t.work.projects.portfolio.title,
+      description: t.work.projects.portfolio.description,
       image: "/img/projects/portfolio.jpg",
       preview: "https://seusite.com",
       github: "https://github.com/seu-usuario/portfolio",
     },
     {
       id: 5,
-      title: "Portfólio Pessoal",
-      description:
-        "Portfólio moderno desenvolvido com Next.js, Tailwind e foco em UX.",
+      title: t.work.projects.portfolio.title,
+      description: t.work.projects.portfolio.description,
       image: "/img/projects/portfolio.jpg",
       preview: "https://seusite.com",
       github: "https://github.com/seu-usuario/portfolio",
     },
     {
       id: 6,
-      title: "Portfólio Pessoal",
-      description:
-        "Portfólio moderno desenvolvido com Next.js, Tailwind e foco em UX.",
+      title: t.work.projects.portfolio.title,
+      description: t.work.projects.portfolio.description,
       image: "/img/projects/portfolio.jpg",
       preview: "https://seusite.com",
       github: "https://github.com/seu-usuario/portfolio",
     },
   ];
-
 
   return (
     <div
@@ -82,16 +77,13 @@ export default function Work() {
         
         <div className="w-full h-screen text-center flex justify-center flex-col items-center">
           <h2 className="font-grandslang text-4xl sm:text-5xl md:text-6xl lg:text-[200px] mb-8 mt-8">
-            WORK
+            {t.work.title}
           </h2>
 
           <p className="max-w-[50%]">
-            Sejam bem-vindos à minha sessão de projetos. Cada trabalho aqui
-            apresentado foi desenvolvido com atenção aos detalhes e representa um
-            pouco da minha trajetória profissional.
+            {t.work.intro}
           </p>
 
-          {/* Botão da seta */}
           <button
             onClick={scrollDown}
             className="
@@ -103,9 +95,8 @@ export default function Work() {
               p-4
               cursor-pointer
             "
-            aria-label="Ir para baixo"
+            aria-label={t.work.scrollDown}
           >
-            {/* Ícone da seta (SVG) */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -146,14 +137,12 @@ export default function Work() {
                 hover:shadow-2xl
               "
             >
-              {/* Imagem */}
               <div
                 className="h-[220px] bg-cover bg-center"
                 style={{ backgroundImage: `url(${project.image})` }}
                 aria-hidden
               />
 
-              {/* Conteúdo */}
               <div className="flex flex-col flex-1 p-6 text-left">
                 <h3 className="font-grandslang text-2xl mb-2">
                   {project.title}
@@ -163,7 +152,6 @@ export default function Work() {
                   {project.description}
                 </p>
 
-                {/* Ações */}
                 <div className="flex gap-3 mt-6">
                   <a
                     href={project.preview}
@@ -183,7 +171,7 @@ export default function Work() {
                       transition
                     "
                   >
-                    Preview
+                    {t.work.preview}
                   </a>
 
                   <a
@@ -206,7 +194,7 @@ export default function Work() {
                       transition
                     "
                   >
-                    GitHub
+                    {t.work.github}
                   </a>
                 </div>
               </div>

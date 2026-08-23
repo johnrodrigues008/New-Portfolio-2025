@@ -1,7 +1,12 @@
+"use client";
+
 import Footer from "../components/footer";
 import PersonImg from "../../../public/img/person.jpeg";
+import { useTranslations } from "../i18n";
 
 export default function About() {
+  const t = useTranslations();
+
   return (
     <div
       className="flex flex-col min-h-screen lg:pl-[80px]"
@@ -52,14 +57,14 @@ export default function About() {
                 lg:mt-8
               "
             >
-              About
+              {t.about.title}
             </h1>
           </header>
 
           <article className="space-y-6 pb-10">
 
             <section aria-labelledby="intro-title">
-              <h2 id="intro-title" className="sr-only">Introduction</h2>
+              <h2 id="intro-title" className="sr-only">{t.about.introTitle}</h2>
 
               <p
                 className="
@@ -69,34 +74,28 @@ export default function About() {
                   w-full sm:w-[90%] lg:w-[80%]
                 "
               >
-                I'm John. A full-stack developer, problem solver and digital product builder.
+                {t.about.introLead}
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                Over the last years, I’ve worked across multiple layers of software development
-                from frontend engineering and backend architecture to UI/UX design, SEO/CRO
-                strategy and data automation.
+                {t.about.intro1}
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                As Full-Stack Developer, I design and build scalable applications, ensuring
-                performance, reliability and clarity in every stage of the product lifecycle.
+                {t.about.intro2}
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                I have a strong foundation in UI/UX principles, accessibility and prototyping,
-                shaping interfaces that improve user experience while maintaining engineering
-                excellence.
+                {t.about.intro3}
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                What drives me is solving real problems through clear engineering, thoughtful
-                design and continuous iteration.
+                {t.about.intro4}
               </p>
             </section>
 
             <section aria-labelledby="quote-title">
-              <h2 id="quote-title" className="sr-only">Favorite Quote</h2>
+              <h2 id="quote-title" className="sr-only">{t.about.quoteTitle}</h2>
 
               <blockquote>
                 <p
@@ -106,50 +105,47 @@ export default function About() {
                     mb-4 leading-tight
                   "
                 >
-                  “There is nothing so useless as doing efficiently that which should not be done at all.”
+                  {t.about.quote}
                 </p>
               </blockquote>
 
               <p className="text-sm sm:text-base leading-6">
-                This quote resonates with my approach to building purposeful, meaningful software.
+                {t.about.quoteNote}
               </p>
             </section>
 
             <section aria-labelledby="experience-title">
               <h2 id="experience-title" className="font-grandslang text-xl sm:text-2xl">
-                EXPERIENCE
+                {t.about.experience}
               </h2>
 
               <ul className="list-disc list-inside space-y-1 mt-4 text-sm sm:text-base leading-6">
-                <li>Full-Stack Developer — G4F</li>
-                <li>Full-Stack Developer — Decisão Sistemas</li>
-                <li>SEO/CRO Developer — Media.Monks Brasil</li>
-                <li>Data & Automation Analyst — Ministério da Infraestrutura</li>
+                {t.about.experienceItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </section>
 
             <section aria-labelledby="skills-title">
               <h2 id="skills-title" className="font-grandslang text-xl sm:text-2xl">
-                SKILLS
+                {t.about.skills}
               </h2>
               
               <p className="mt-4 text-sm sm:text-base leading-6">
-                Full-Stack Development • UI/UX • SEO/CRO • Agile • APIs • Architecture • Automation •
-                Databases • DevOps • Cloud • Debugging • Performance Optimization
+                {t.about.skillsList}
               </p>
             </section>
 
             <section aria-labelledby="kudos-title">
               <h2 id="kudos-title" className="font-grandslang text-xl sm:text-2xl">
-                KUDOS
+                {t.about.kudos}
               </h2>
 
               <p className="mt-4 text-sm sm:text-base leading-6">
-                My journey has been shaped by great mentors and teams who helped refine my skills and
-                thinking as an engineer and designer.
+                {t.about.kudosText}
               </p>
 
-              <p className="mt-4"><strong>THANK YOU.</strong></p>
+              <p className="mt-4"><strong>{t.about.thankYou}</strong></p>
             </section>
 
           </article>
