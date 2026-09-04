@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist_Mono } from 'next/font/google';
 
 import './globals.css';
+import { SectionProvider } from './contexts/section-context';
 import { TransitionProvider } from './contexts/transition-context';
 import { LocaleProvider } from './i18n';
 
@@ -23,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistMono.variable} antialiased cz-shortcut-listen="true"`}>
+      <body className={`${geistMono.variable} antialiased`}>
         <LocaleProvider>
           <TransitionProvider>
-            {children}
+            <SectionProvider>{children}</SectionProvider>
           </TransitionProvider>
         </LocaleProvider>
       </body>

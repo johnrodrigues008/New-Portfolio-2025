@@ -1,37 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useTransition } from "../contexts/transition-context";
+import { usePathname } from "next/navigation";
+
+import { useSection, type SectionId } from "../contexts/section-context";
 import { useTranslations } from "../i18n";
 import Translate from "./translate";
 
 export default function Navbar() {
-  const { startTransition } = useTransition();
-  const router = useRouter();
+  const { navigateToSection, activeSection } = useSection();
+  const pathname = usePathname();
   const t = useTranslations();
 
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "/about", label: t.nav.about },
-    { href: "/work", label: t.nav.work },
-    { href: "/blog", label: t.nav.education },
-    { href: "/contact", label: t.nav.contact },
+    { href: "/about", section: "about" as const, label: t.nav.about },
+    { href: "/work", section: "work" as const, label: t.nav.work },
+    { href: "/education", section: "education" as const, label: t.nav.education },
+    { href: "/contact", section: "contact" as const, label: t.nav.contact },
   ] as const;
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    section: SectionId
   ) => {
     e.preventDefault();
-
     setIsOpen(false);
-    startTransition();
-
-    setTimeout(() => {
-      router.push(href);
-    }, 100);
+    navigateToSection(section);
   };
 
   useEffect(() => {
@@ -54,6 +50,9 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  const isActive = (section: SectionId) =>
+    pathname === "/" && activeSection === section;
+
   return (
     <nav
       className="
@@ -61,14 +60,16 @@ export default function Navbar() {
         px-5 py-4
         sm:px-8 sm:py-5
         md:px-12
-        lg:h-full lg:w-[min(48%,42rem)] lg:shrink-0 lg:flex-col lg:items-start lg:justify-center
-        lg:px-6 lg:py-10
+        lg:w-[min(48%,42rem)] lg:shrink-0 lg:flex-col lg:items-start lg:justify-center
+        lg:px-6 lg:py-0
         xl:w-[min(50%,48rem)] xl:px-10
         2xl:w-[min(52%,56rem)] 2xl:px-14
+        lg:h-[100vh]
       "
     >
-      {/* Mobile brand — hidden on desktop split layout */}
-      <span
+      <button
+        type="button"
+        onClick={() => handleLinkClick({ preventDefault: () => {} } as React.MouseEvent<HTMLAnchorElement>, "home")}
         className="
           z-50 block cursor-pointer font-grandslang
           text-[1.5rem] leading-[0.9]
@@ -78,22 +79,22 @@ export default function Navbar() {
         "
       >
         {t.nav.brand}
-      </span>
+      </button>
 
-      {/* Desktop mega menu */}
       <ul className="hidden w-full lg:block lg:space-y-3 xl:space-y-4 2xl:space-y-5">
         {links.map((link) => (
           <li key={link.href}>
             <a
               href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
-              className="
+              onClick={(e) => handleLinkClick(e, link.section)}
+              className={`
                 block cursor-pointer font-grandslang
                 text-[clamp(3.5rem,9vw,10rem)] leading-[0.9]
                 transition-all duration-300 ease-in-out
                 hover:skew-x-[-15deg] hover:opacity-80
                 focus-visible:outline-2 focus-visible:outline-offset-4
-              "
+                ${isActive(link.section) ? "opacity-60" : ""}
+              `}
             >
               {link.label}
             </a>
@@ -101,12 +102,10 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Language — desktop only (top-right of viewport) */}
-      <div className="hidden lg:contents">
+      <div className="contents">
         <Translate />
       </div>
 
-      {/* Mobile fullscreen menu */}
       {isOpen && (
         <div
           id="mobile-menu"
@@ -123,7 +122,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
+                  onClick={(e) => handleLinkClick(e, link.section)}
                   className="
                     block cursor-pointer font-grandslang
                     text-5xl leading-[0.9] sm:text-6xl md:text-7xl
@@ -140,7 +139,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Hamburger — mobile / tablet only */}
       <button
         type="button"
         aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}

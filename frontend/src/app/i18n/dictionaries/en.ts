@@ -1,6 +1,7 @@
 export const en = {
   nav: {
     brand: "Personal portfolio",
+    home: "Home",
     about: "About",
     work: "Work",
     education: "Education",
@@ -21,6 +22,8 @@ export const en = {
       "Full-stack developer with experience across the entire software development lifecycle, from requirements analysis and prototyping to development, testing, deployment, and maintenance.",
     bio2:
       "Experienced in systems analysis, application integration, software architecture, scalability, maintainability, and accessible web development.",
+    downloadCv: "Download Resume",
+    viewExperience: "View experience",
   },
   footer: {
     home: "HOME",
@@ -32,11 +35,11 @@ export const en = {
     introLead:
       "I'm John. A full-stack developer, problem solver and digital product builder.",
     intro1:
-      "Over the last years, I've worked across multiple layers of software development from frontend engineering and backend architecture to UI/UX design, SEO/CRO strategy and data automation.",
+      "I am a full-stack developer with experience in systems and web development, working across the entire software lifecycle: requirements, prototyping, development, testing, deployment, and maintenance.",
     intro2:
-      "As Full-Stack Developer, I design and build scalable applications, ensuring performance, reliability and clarity in every stage of the product lifecycle.",
+      "Proficient in PHP, JavaScript (Node.js, TypeScript), Python, HTML, CSS (SCSS/SASS), and frameworks such as AngularJS, Angular (v16–v19), ReactJS, and Next.js.",
     intro3:
-      "I have a strong foundation in UI/UX principles, accessibility and prototyping, shaping interfaces that improve user experience while maintaining engineering excellence.",
+      "Analytical and proactive profile, focused on problem-solving, continuous learning, and growth in software architecture and technical leadership.",
     intro4:
       "What drives me is solving real problems through clear engineering, thoughtful design and continuous iteration.",
     quoteTitle: "Favorite Quote",
@@ -45,15 +48,60 @@ export const en = {
     quoteNote:
       "This quote resonates with my approach to building purposeful, meaningful software.",
     experience: "EXPERIENCE",
-    experienceItems: [
-      "Full-Stack Developer — G4F",
-      "Full-Stack Developer — Decisão Sistemas",
-      "SEO/CRO Developer — Media.Monks Brasil",
-      "Data & Automation Analyst — Ministério da Infraestrutura",
+    experienceEntries: [
+      {
+        role: "Full Stack Developer",
+        company: "G4F",
+        location: "Brasília, DF",
+        period: "2024 – Present · 1 yr 10 mo",
+        highlights: [
+          "Development and maintenance of web applications for the Ministry of Foreign Affairs.",
+          "System maintenance and refactoring with PHP (Zend, Doctrine), Node.js (NestJS), SQL Server, and PostgreSQL.",
+          "Interface modernization with AngularJS and ReactJS; Docker, Git, Bitbucket, Jira, and ELK Stack monitoring.",
+        ],
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Decisão Sistemas",
+        location: "Goiânia, GO",
+        period: "2023 – 2024 · 1 yr",
+        highlights: [
+          "Software development from conception to delivery, focusing on quality, performance, and usability.",
+          "Backend services and frontend interfaces with AngularJS and Node.js.",
+          "Interface design and prototyping with Figma.",
+        ],
+      },
+      {
+        role: "SEO/CRO Analyst",
+        company: "Media.Monks",
+        location: "Sorocaba, SP",
+        period: "2022 – 2023 · 1 yr 6 mo",
+        highlights: [
+          "Frontend development and API integration for web applications.",
+          "E-commerce maintenance on VTEX Legacy, VTEX IO, TrayCorp, WordPress, Deco CX, and Salesforce.",
+          "SEO and CRO strategies; agile workflows with Scrum and Kanban.",
+        ],
+      },
+      {
+        role: "Data & Automation Analyst",
+        company: "Ministry of Transport",
+        location: "Brasília, DF",
+        period: "2021 – 2022 · 1 yr",
+        highlights: [
+          "PostgreSQL and MySQL database management; Data Lake solutions.",
+          "Automations with Python, Power Automate, and Power Apps.",
+          "Dashboards with Power BI; web development with HTML, CSS, JavaScript, and Plone CMS.",
+        ],
+      },
     ],
     skills: "SKILLS",
-    skillsList:
-      "Full-Stack Development • UI/UX • SEO/CRO • Agile • APIs • Architecture • Automation • Databases • DevOps • Cloud • Debugging • Performance Optimization",
+    skillsGroups: [
+      { category: "Backend", items: "Node.js (NestJS), PHP (Zend, Doctrine), Python" },
+      { category: "Frontend", items: "JavaScript, TypeScript, React.js, Next.js, AngularJS, Angular, HTML5, CSS3, SCSS, Tailwind" },
+      { category: "Databases", items: "PostgreSQL, MySQL, SQL Server, MongoDB" },
+      { category: "DevOps & Tools", items: "Docker, Git, Bitbucket, Jira, ELK Stack, Scrum, Kanban" },
+      { category: "Accessibility & SEO", items: "WCAG 2.1, Semantic HTML, Core Web Vitals, SEO optimization" },
+    ],
     kudos: "KUDOS",
     kudosText:
       "My journey has been shaped by great mentors and teams who helped refine my skills and thinking as an engineer and designer.",
@@ -89,8 +137,42 @@ export const en = {
       },
     },
   },
-  blog: {
+  education: {
     title: "EDUCATION",
+    intro:
+      "Academic background and certifications that support my continuous development in software engineering.",
+    degreesTitle: "Degrees",
+    certificationsTitle: "Certifications",
+    languagesTitle: "Languages",
+    degrees: [
+      {
+        institution: "PUC Campinas",
+        program: "Postgraduate — Software Architecture, Data Science & Cybersecurity",
+        period: "In progress · Expected Dec 2026",
+      },
+      {
+        institution: "Estácio de Sá University",
+        program: "Bachelor's — Computer Science",
+        period: "Expected Jun 2026",
+      },
+      {
+        institution: "Anhanguera Educacional",
+        program: "Postgraduate — Software Engineering",
+        period: "Completed 2023",
+      },
+      {
+        institution: "Estácio de Sá University",
+        program: "Bachelor's — Management Processes",
+        period: "Completed 2022",
+      },
+    ],
+    certifications: [
+      { name: "Everyone on the Web: Digital Accessibility Best Practices", provider: "nic.br", year: "2025" },
+      { name: "Accessible Web Application Development", provider: "Alura", year: "2023" },
+      { name: "Full Stack Developer", provider: "Gama Academy (360h)", year: "2021" },
+      { name: "Frontend/Backend Developer", provider: "SENAI (360h)", year: "2021" },
+    ],
+    languages: ["Portuguese — Native", "English — Advanced", "Spanish — Intermediate"],
   },
   contact: {
     title: "CONTACT",
@@ -98,13 +180,45 @@ export const en = {
     intro:
       "Need a beautiful, well-structured website that you can own and maintain yourself? Get in touch.",
     email: "Email: johnrodrigues008@gmail.com",
+    phone: "Phone: +55 61 99180-3216",
+    location: "Brasília, Brazil",
     internet: "On the Internet:",
   },
+  resume: {
+    pt: "/docs/Curriculum_John_Rodrigues.pdf",
+    en: "/docs/Curriculum_John_Rodrigues_EN.pdf",
+  },
 } as const;
+
+export type ExperienceEntry = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  highlights: readonly string[];
+};
+
+export type SkillGroup = {
+  category: string;
+  items: string;
+};
+
+export type Degree = {
+  institution: string;
+  program: string;
+  period: string;
+};
+
+export type Certification = {
+  name: string;
+  provider: string;
+  year: string;
+};
 
 export type Dictionary = {
   nav: {
     brand: string;
+    home: string;
     about: string;
     work: string;
     education: string;
@@ -123,6 +237,8 @@ export type Dictionary = {
     role: string;
     bio1: string;
     bio2: string;
+    downloadCv: string;
+    viewExperience: string;
   };
   footer: {
     home: string;
@@ -140,9 +256,9 @@ export type Dictionary = {
     quote: string;
     quoteNote: string;
     experience: string;
-    experienceItems: readonly string[];
+    experienceEntries: readonly ExperienceEntry[];
     skills: string;
-    skillsList: string;
+    skillsGroups: readonly SkillGroup[];
     kudos: string;
     kudosText: string;
     thankYou: string;
@@ -160,14 +276,27 @@ export type Dictionary = {
       portfolio: { title: string; description: string };
     };
   };
-  blog: {
+  education: {
     title: string;
+    intro: string;
+    degreesTitle: string;
+    certificationsTitle: string;
+    languagesTitle: string;
+    degrees: readonly Degree[];
+    certifications: readonly Certification[];
+    languages: readonly string[];
   };
   contact: {
     title: string;
     hello: string;
     intro: string;
     email: string;
+    phone: string;
+    location: string;
     internet: string;
+  };
+  resume: {
+    pt: string;
+    en: string;
   };
 };

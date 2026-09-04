@@ -61,7 +61,7 @@ export default function Translate() {
   return (
     <div
       ref={containerRef}
-      className="fixed top-6 right-6 z-50 hidden lg:block xl:top-10 xl:right-10"
+      className="fixed top-6 right-16 z-50 lg:right-6 xl:top-10 xl:right-10"
     >
       <button
         type="button"

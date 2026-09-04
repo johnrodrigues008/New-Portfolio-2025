@@ -57,4 +57,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "monsterart", sans-serif;
+  overflow: hidden;
+}
+
+.section-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #C2BE9F transparent;
+}
+
+.section-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section-panel::-webkit-scrollbar-thumb {
+  background-color: #C2BE9F;
+  border-radius: 999px;
 }
